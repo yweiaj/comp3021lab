@@ -6,6 +6,8 @@ public class NoteBook {
 	
 	public NoteBook(){
 		folders=new ArrayList<Folder>();
+		
+		
 	}
 	
 	public boolean createTextNote(String folderName, String title){
@@ -25,12 +27,15 @@ public class NoteBook {
 	private boolean insertNote(String folderName, Note note){
 		Folder f=null;
 		for (Folder f1: folders){
-			if (f1.equals(new Folder(folderName)))
+			if (f1.equals(new Folder(folderName))){
 				f=f1;
+				break;
+			}
 		}
 		
 		if (f==null){
 			f=new Folder(folderName);
+			folders.add(f);
 		}
 		
 		for (Note n: f.getNotes()){
@@ -41,6 +46,7 @@ public class NoteBook {
 		}
 		
 		f.getNotes().add(note);
+		
 		return true;
 	}
 }

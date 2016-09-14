@@ -37,8 +37,6 @@ public class Folder {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
 		Folder other = (Folder) obj;
 		if (name == null) {
 			if (other.name != null)
