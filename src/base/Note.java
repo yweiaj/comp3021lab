@@ -44,7 +44,7 @@ public class Note implements Comparable<Note>{
 	@Override
 	public int compareTo(Note o) {
 		// TODO Auto-generated method stub
-		int comp=this.date.compareTo(o.getDate());
+		long comp=this.date.getTime()-o.getDate().getTime();
 		if (comp<0)
 			return 1;
 		else if (comp>0)
@@ -52,6 +52,11 @@ public class Note implements Comparable<Note>{
 		else 
 			return 0;
 		
+	}
+
+	@Override
+	public String toString() {
+		return date.toString() + "\t" + title;
 	}
 
 }

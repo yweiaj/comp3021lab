@@ -1,5 +1,7 @@
 package base;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Folder implements Comparable<Folder>{
 	
@@ -73,7 +75,54 @@ public class Folder implements Comparable<Folder>{
 	}
 	
 	public void sortNotes() {
+		Collections.sort(notes);
+	}
+	
+	public List<Note> searchNotes(String keywords){
+		String[] keys=keywords.split(" ");
+		List<Note> lists = new ArrayList<Note>();
+
 		
+		for (Note n : this.notes){
+			boolean Flag=true;
+			
+			if (n instanceof TextNote){
+				int i=0;
+				
+				while ((i<keys.length)&&(Flag)) {
+					Flag=false; 
+					do {
+					if (keys[i].equalsIgnoreCase("or"))
+						i++;
+					if ((n.getTitle().toLowerCase().indexOf(keys[i].toLowerCase())>=0)||(((TextNote) n).content.toLowerCase().indexOf(keys[i].toLowerCase())>=0))
+						{Flag=true;}
+					i++;
+					} while ((i<keys.length)&&(keys[i].equalsIgnoreCase("or")));
+
+				}
+				if (Flag)
+					lists.add(n);		
+			}
+			
+			if (n instanceof ImageNote) {
+				int i=0;
+				
+				while ((i<keys.length)&&(Flag)) {
+					Flag=false; 
+					do {
+					if (keys[i].equalsIgnoreCase("or"))
+						i++;
+					if ((n.getTitle().toLowerCase().indexOf(keys[i].toLowerCase())>=0))
+						{Flag=true;}
+					i++;
+					} while ((i<keys.length)&&(keys[i].equalsIgnoreCase("or")));
+
+				}
+				if (Flag)
+					lists.add(n);				
+			}
+		}
+		return lists;
 	}
 	
 }

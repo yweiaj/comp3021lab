@@ -9,4 +9,10 @@ public class TextNote extends Note {
 		// TODO Auto-generated constructor stub
 	}
 
+	public TextNote(String title, String content) {
+		super(title);
+		this.content = content;
+	}
+	
+
 }
