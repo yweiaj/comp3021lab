@@ -1,7 +1,7 @@
 package base;
 import java.util.ArrayList;
 
-public class Folder {
+public class Folder implements Comparable<Folder>{
 	
 	private ArrayList<Note> notes;
 	private String name;
@@ -59,6 +59,21 @@ public class Folder {
 		}
 		return name + ": " + nText + ":" + nImage;
 	}
+
+	@Override
+	public int compareTo(Folder o) {
+		// TODO Auto-generated method stub
+		int comp=this.name.compareTo(o.getName());
+		if (comp>0)
+			return 1;
+		else if (comp<0)
+			return -1;
+		else 
+			return 0;
+	}
 	
+	public void sortNotes() {
+		
+	}
 	
 }
