@@ -43,7 +43,6 @@ public class Note implements Comparable<Note>{
 
 	@Override
 	public int compareTo(Note o) {
-		// TODO Auto-generated method stub
 		long comp=this.date.getTime()-o.getDate().getTime();
 		if (comp<0)
 			return 1;

@@ -64,7 +64,6 @@ public class Folder implements Comparable<Folder>{
 
 	@Override
 	public int compareTo(Folder o) {
-		// TODO Auto-generated method stub
 		int comp=this.name.compareTo(o.getName());
 		if (comp>0)
 			return 1;
@@ -92,11 +91,11 @@ public class Folder implements Comparable<Folder>{
 				while ((i<keys.length)&&(Flag)) {
 					Flag=false; 
 					do {
-					if (keys[i].equalsIgnoreCase("or"))
+						if (keys[i].equalsIgnoreCase("or"))
+							i++;
+						if ((n.getTitle().toLowerCase().indexOf(keys[i].toLowerCase())>=0)||(((TextNote) n).content.toLowerCase().indexOf(keys[i].toLowerCase())>=0))
+							{Flag=true;}
 						i++;
-					if ((n.getTitle().toLowerCase().indexOf(keys[i].toLowerCase())>=0)||(((TextNote) n).content.toLowerCase().indexOf(keys[i].toLowerCase())>=0))
-						{Flag=true;}
-					i++;
 					} while ((i<keys.length)&&(keys[i].equalsIgnoreCase("or")));
 
 				}
@@ -110,11 +109,11 @@ public class Folder implements Comparable<Folder>{
 				while ((i<keys.length)&&(Flag)) {
 					Flag=false; 
 					do {
-					if (keys[i].equalsIgnoreCase("or"))
+						if (keys[i].equalsIgnoreCase("or"))
+							i++;
+						if ((n.getTitle().toLowerCase().indexOf(keys[i].toLowerCase())>=0))
+							{Flag=true;}
 						i++;
-					if ((n.getTitle().toLowerCase().indexOf(keys[i].toLowerCase())>=0))
-						{Flag=true;}
-					i++;
 					} while ((i<keys.length)&&(keys[i].equalsIgnoreCase("or")));
 
 				}

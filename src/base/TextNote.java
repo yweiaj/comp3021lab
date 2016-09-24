@@ -6,7 +6,6 @@ public class TextNote extends Note {
 	
 	public TextNote(String title) {
 		super(title);
-		// TODO Auto-generated constructor stub
 	}
 
 	public TextNote(String title, String content) {
