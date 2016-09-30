@@ -1,10 +1,15 @@
 package base;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Folder implements Comparable<Folder>{
+public class Folder implements Comparable<Folder>,Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Note> notes;
 	private String name;
 	
@@ -59,7 +64,7 @@ public class Folder implements Comparable<Folder>{
 			if (f instanceof ImageNote)
 				nImage+=1;			
 		}
-		return name + ": " + nText + ":" + nImage;
+		return name + ":" + nText + ":" + nImage;
 	}
 
 	@Override
