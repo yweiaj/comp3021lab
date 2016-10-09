@@ -96,7 +96,6 @@ public class TextNote extends Note {
 
 
 	private String getContent() {
-	
 		return content;
 	}
 }
