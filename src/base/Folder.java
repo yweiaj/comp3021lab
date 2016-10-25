@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
+
 public class Folder implements Comparable<Folder>,Serializable{
 	
 	/**
@@ -129,4 +133,14 @@ public class Folder implements Comparable<Folder>,Serializable{
 		return lists;
 	}
 	
+	public boolean removeNotes(String title){
+		int n1=notes.indexOf(new TextNote(title));
+		if (n1>=0){
+			notes.remove(n1);
+			return true;
+
+		}
+		
+		return false;
+	}
 }

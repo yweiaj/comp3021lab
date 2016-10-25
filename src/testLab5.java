@@ -1,6 +1,7 @@
 
 import java.io.File;
 
+import base.Folder;
 import base.NoteBook;
 import base.TextNote;
 
@@ -42,6 +43,5 @@ public class testLab5 {
 		
 		System.out.println("Congratulations, your code is OK");
 
-		
 	}
 }
